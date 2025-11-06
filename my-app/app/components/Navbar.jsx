@@ -96,6 +96,12 @@ export default function Navbar() {
           >
             Trade
           </button>
+          <button
+            onClick={() => router.push("/certificates")}
+            className="px-3 py-2 rounded-full bg-neutral-800 hover:bg-neutral-700 text-neutral-200 transition-colors"
+          >
+            Certificates
+          </button>
         </div>
 
         {wallet ? (
