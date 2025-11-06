@@ -22,7 +22,6 @@ export default function VerifyPage() {
       setMetadata(allMeta);
     });
 
-    // mimic blockchain data fetch (simulate delay)
     setTimeout(() => {
       setFakeChainData({
         promptHash: "0xabc123fakehash",
@@ -44,7 +43,6 @@ export default function VerifyPage() {
   return (
     <div className="min-h-screen bg-neutral-900 text-neutral-100">
       <Navbar />
-
       <div className="max-w-5xl mx-auto mt-10 p-6 space-y-10">
         <h2 className="text-3xl md:text-4xl font-extrabold text-emerald-400">
           Verify Your Image
@@ -53,7 +51,6 @@ export default function VerifyPage() {
           Upload or drag an image to extract its metadata and simulated blockchain info.
         </p>
 
-        {/* Upload zone */}
         <div
           className={`border-2 ${
             dragging ? "border-emerald-400 bg-neutral-800/80" : "border-neutral-700 bg-neutral-800/50"
@@ -81,7 +78,6 @@ export default function VerifyPage() {
 
         {image && (
           <div className="flex flex-col md:flex-row items-start gap-8 mt-8">
-            {/* Image preview */}
             <div className="flex-1">
               <img
                 src={image}
@@ -90,9 +86,7 @@ export default function VerifyPage() {
               />
             </div>
 
-            {/* Data panels */}
             <div className="flex-1 flex flex-col gap-6">
-              {/* EXIF Metadata */}
               <div className="bg-neutral-800/60 border border-neutral-700 rounded-2xl p-4 overflow-auto max-h-[300px]">
                 <h3 className="font-semibold text-emerald-400 mb-3">EXIF Metadata</h3>
                 {metadata && Object.keys(metadata).length > 0 ? (
@@ -106,7 +100,6 @@ export default function VerifyPage() {
                 )}
               </div>
 
-              {/* Simulated On-chain Metadata */}
               {fakeChainData && (
                 <div className="bg-neutral-800/60 border border-emerald-600 rounded-2xl p-4">
                   <h3 className="font-semibold text-emerald-400 mb-3">

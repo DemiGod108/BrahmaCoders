@@ -1,11 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Wallet, X, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-/**
- * WalletButton component
- */
+// Wallet button component
 const WalletButton = ({ address, disconnectWallet }) => {
   const shortAddress = `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
   return (
@@ -23,16 +21,54 @@ const WalletButton = ({ address, disconnectWallet }) => {
   );
 };
 
-/**
- * Navbar component
- */
-export default function Navbar({ wallet, disconnectWallet, connectWallet, connecting }) {
+// Navbar component
+export default function Navbar() {
   const router = useRouter();
+  const [wallet, setWallet] = useState(null);
+  const [connecting, setConnecting] = useState(false);
+
+  const connectWallet = async () => {
+  if (!window.ethereum) return alert("MetaMask not detected");
+  setConnecting(true);
+  try {
+    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+    const address = accounts[0];
+    setWallet(address);
+    localStorage.setItem("walletAddress", address);
+    window.location.reload(); // ← reload page after connecting
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setConnecting(false);
+  }
+};
+
+
+  const disconnectWallet = () => {
+  setWallet(null);
+  localStorage.removeItem("walletAddress");
+  window.location.reload(); // reload page after disconnect
+};
+
+
+  useEffect(() => {
+    const stored = localStorage.getItem("walletAddress");
+    if (stored) setWallet(stored);
+
+    if (window.ethereum) {
+      window.ethereum.on("accountsChanged", (accounts) => {
+        if (accounts.length === 0) disconnectWallet();
+        else {
+          setWallet(accounts[0]);
+          localStorage.setItem("walletAddress", accounts[0]);
+        }
+      });
+    }
+  }, []);
 
   return (
     <div className="bg-neutral-900/80 backdrop-blur-md border-b border-neutral-800 p-4 md:p-6 sticky top-0 z-10">
       <div className="max-w-5xl mx-auto flex justify-between items-center gap-8">
-        {/* Branding */}
         <div className="flex items-center space-x-3 cursor-pointer" onClick={() => router.push("/")}>
           <Zap className="w-8 h-8 text-emerald-400" />
           <div>
@@ -41,7 +77,6 @@ export default function Navbar({ wallet, disconnectWallet, connectWallet, connec
           </div>
         </div>
 
-        {/* Navigation Links (always visible) */}
         <div className="hidden md:flex space-x-8">
           <button
             onClick={() => router.push("/")}
@@ -63,7 +98,6 @@ export default function Navbar({ wallet, disconnectWallet, connectWallet, connec
           </button>
         </div>
 
-        {/* Wallet Section (optional) */}
         {wallet ? (
           <WalletButton address={wallet} disconnectWallet={disconnectWallet} />
         ) : (
