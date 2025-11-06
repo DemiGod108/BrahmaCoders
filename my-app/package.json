@@ -11,6 +11,7 @@
   "dependencies": {
     "@huggingface/inference": "^4.13.1",
     "ethers": "^6.15.0",
+    "exif-js": "^2.3.0",
     "lucide-react": "^0.552.0",
     "next": "16.0.1",
     "react": "19.2.0",
