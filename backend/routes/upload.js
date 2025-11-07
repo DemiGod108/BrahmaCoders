@@ -29,7 +29,9 @@ router.post("/", upload.single("file"), async (req, res) => {
     const wallet = req.body.wallet || process.env.OWNER_WALLET;
 
     // ✅ Always ISO formatted
-    const timestampISO = normalizeTimestamp(req.body.timestamp);
+    // const timestampISO = normalizeTimestamp(req.body.timestamp);
+    const timestampISO = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+
 
     const filePath = req.file.path;
     const mimeType = req.file.mimetype;
