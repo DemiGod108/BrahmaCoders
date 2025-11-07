@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 
 // ---------- helpers ----------
 const GATEWAYS = [
+  "https://copper-tricky-mosquito-491.mypinata.cloud/ipfs/",
   "https://nftstorage.link/ipfs/",
   "https://cloudflare-ipfs.com/ipfs/",
   "https://gateway.pinata.cloud/ipfs/",
