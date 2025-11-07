@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>POA</title>
+    <style>
+      body { background:#0d1117; color:#fff; font-family: system-ui, Arial, sans-serif; margin:0; }
+      .wrap { width: 320px; padding: 16px; }
+      .card { background:#161b22; border:1px solid #30363d; border-radius:12px; padding:16px; }
+      .row { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+      button { cursor:pointer; border:none; padding:10px 12px; border-radius:8px; background:#238636; color:#000; font-weight:700; }
+      button:hover { background:#2ea043; }
+      input { width:100%; padding:8px; border-radius:8px; border:1px solid #30363d; background:#0d1117; color:#fff; }
+      small { color:#9aa4af; }
+      .muted { color:#9aa4af; }
+      .ok { color:#3fb950; }
+      .warn { color:#f0883e; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <div class="row">
+          <div>
+            <div style="font-weight:800">POA – Claim Ownership</div>
+            <small>Right-click media on any page → Claim</small>
+          </div>
+          <img src="icons/poa-128.png" width="28" height="28" />
+        </div>
+
+        <div style="margin-top:10px">
+          <label for="wallet">Connected Wallet</label>
+          <input id="walletDisplay" placeholder="0x..." readonly />
+          <div id="status" class="muted" style="margin-top:6px">Not connected</div>
+        </div>
+
+        <div class="row" style="margin-top:12px">
+          <button id="connectBtn">Connect (open site)</button>
+          <button id="syncBtn">Sync Wallet</button>
+        </div>
+
+        <div style="margin-top:8px">
+          <small class="muted">
+            Tip: After connecting on your site, click <b>Sync Wallet</b>. Then right-click any image/video/audio → <b>Claim ownership with POA</b>.
+          </small>
+        </div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

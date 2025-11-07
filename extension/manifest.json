@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "POA – Claim AI Media Ownership",
+  "version": "1.0.0",
+  "description": "Right-click any AI-generated image/video/audio to mint a Proof-of-Art NFT with your wallet.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "storage",
+    "notifications"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "POA",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "icons/poa-128.png"
+  }
+}
