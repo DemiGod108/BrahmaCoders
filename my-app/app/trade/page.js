@@ -5,10 +5,10 @@ import Navbar from "../components/Navbar";
 // ---------- helpers ----------
 const GATEWAYS = [
   "https://copper-tricky-mosquito-491.mypinata.cloud/ipfs/",
-  "https://nftstorage.link/ipfs/",
-  "https://cloudflare-ipfs.com/ipfs/",
   "https://gateway.pinata.cloud/ipfs/",
+  "https://nftstorage.link/ipfs/",
   "https://ipfs.io/ipfs/",
+  "https://cloudflare-ipfs.com/ipfs/",
 ];
 
 // extract a bare CID from many possible shapes: ipfs://CID, https://.../ipfs/CID, or plain CID
