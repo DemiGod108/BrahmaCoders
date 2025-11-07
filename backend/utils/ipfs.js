@@ -5,7 +5,7 @@ require("dotenv").config();
 
 const PINATA_JWT = process.env.PINATA_JWT;
 
-async function uploadImageToIPFS(filePath) {
+async function uploadFileToIPFS(filePath) {
   const data = new FormData();
   data.append("file", fs.createReadStream(filePath));
 
@@ -38,4 +38,4 @@ async function uploadJSONToIPFS(json) {
   return `ipfs://${res.data.IpfsHash}`;
 }
 
-module.exports = { uploadImageToIPFS, uploadJSONToIPFS };
+module.exports = { uploadFileToIPFS, uploadJSONToIPFS };
