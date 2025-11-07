@@ -1,0 +1,31 @@
+{
+  "name": "Proof of Art NFT",
+  "description": "AI-generated artwork with verifiable human authorship.",
+  "image": "https://gateway.pinata.cloud/ipfs/QmVe1D6v4YHeUtBuBVM2eW7d4iS4mVyNhYtt5HAfSVwm1f",
+  "attributes": [
+    {
+      "trait_type": "Prompt",
+      "value": "cat and dog eating grass"
+    },
+    {
+      "trait_type": "AI Model",
+      "value": "huggingface"
+    },
+    {
+      "trait_type": "Face Hash",
+      "value": "hash_91312hd91h3d1"
+    },
+    {
+      "trait_type": "Creator Wallet",
+      "value": "0x3255527f24dae9b7443719e86cceedd919e99924"
+    },
+    {
+      "trait_type": "Timestamp",
+      "value": "1762455526689"
+    },
+    {
+      "trait_type": "Ownership Type",
+      "value": "original"
+    }
+  ]
+}
